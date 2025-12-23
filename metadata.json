@@ -1,0 +1,7 @@
+{
+  "name": "AI-Worker",
+  "description": "Voice-first desktop AI assistant connecting local and remote models for productivity.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
