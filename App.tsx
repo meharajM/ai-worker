@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import FeatureCard from './components/FeatureCard';
 import VoiceDemo from './components/VoiceDemo';
-import { Network, Mic, Shield, Download, Play, Check, ArrowRight, Lock } from 'lucide-react';
+import { Network, Mic, Shield, Play, Check, ArrowRight, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -36,10 +36,13 @@ const App: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
-                <Download size={20} />
-                Download for Mac
-              </button>
+              <a 
+                href="https://forms.gle/jiR16e2m4od5E2po7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
+                Join Waiting List
+              </a>
               <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg text-white bg-[#1e293b] hover:bg-[#334155] transition-all">
                 <Play size={20} fill="currentColor" className="w-5 h-5 text-gray-400" />
                 Watch Demo
@@ -156,9 +159,13 @@ const App: React.FC = () => {
                       </div>
                    </div>
 
-                   <button className="w-full md:w-auto px-12 py-4 bg-white hover:bg-gray-100 text-black font-bold rounded-xl transition-colors text-lg">
-                      Download for Mac
-                   </button>
+                   <a 
+                      href="https://forms.gle/jiR16e2m4od5E2po7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full md:w-auto px-12 py-4 bg-white hover:bg-gray-100 text-black font-bold rounded-xl transition-colors text-lg">
+                      Join Waiting List
+                   </a>
                    <p className="mt-6 text-sm text-gray-500">Windows version available via Waitlist</p>
                </div>
             </motion.div>
@@ -181,9 +188,13 @@ const App: React.FC = () => {
               <a href="#" className="hover:text-white">Privacy</a>
            </div>
 
-           <button className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-gray-200 transition-colors">
-              Download Beta
-           </button>
+           <a 
+              href="https://forms.gle/jiR16e2m4od5E2po7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-gray-200 transition-colors">
+              Join Waiting List
+           </a>
         </div>
       </footer>
     </div>
