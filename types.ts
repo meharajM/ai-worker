@@ -15,8 +15,13 @@ export interface ChatMessage {
 export interface FeatureCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   delay?: number;
   className?: string;
   children?: React.ReactNode;
+  onClick?: () => void;
+  variant?: 'default' | 'outlined' | 'solid';
+  classNameIcon?: string;
+  classNameTitle?: string;
+  classNameDescription?: string;
 }
