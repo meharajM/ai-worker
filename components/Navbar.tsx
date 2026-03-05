@@ -15,19 +15,17 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Features', href: '#features' },
-    { name: 'Integrations', href: '#integrations' },
-    { name: 'Privacy', href: '#privacy' },
+    { name: 'Demo', href: '#demo' },
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-dark/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-dark/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
             <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-purple rounded-xl flex items-center justify-center">
@@ -53,9 +51,9 @@ const Navbar: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="bg-white text-brand-dark hover:bg-gray-100 px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <a href="#download" className="inline-block bg-white text-brand-dark hover:bg-gray-100 px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               Download Beta
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -84,9 +82,9 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <button className="w-full text-left bg-brand-primary/20 text-brand-primary block px-3 py-2 rounded-md text-base font-medium mt-4">
+            <a href="#download" onClick={() => setMobileMenuOpen(false)} className="w-full text-left bg-brand-primary/20 text-brand-primary block px-3 py-2 rounded-md text-base font-medium mt-4">
               Download Beta
-            </button>
+            </a>
           </div>
         </div>
       )}

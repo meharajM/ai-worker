@@ -5,42 +5,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="AI-Worker is a voice-native desktop AI agent for general workflow automation. Connect Gemini, Claude, or local LLMs to a unified workspace to automate tasks across files and apps using MCP." />
+    content="AI-Worker is a desktop AI agent that automates repetitive tasks locally and securely. Connect your files and everyday tools to save hours across your workflows." />
   <meta name="keywords"
-    content="workflow automation, general work flow automation, AI agent, desktop AI workspace, voice AI assistant, local LLM agent, Model Context Protocol, MCP, intelligent automation" />
+    content="workflow automation, AI assistant, productivity software, task automation, desktop agent, AI tool, smart automation, business productivity" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ai-worker.tech/" />
-  <meta property="og:title" content="AI-Worker | AI Agent for Workflow Automation" />
+  <meta property="og:title" content="AI-Worker | Automate Your Daily Work" />
   <meta property="og:description"
-    content="The first voice-native AI agent for general workflow automation. Connect LLMs to your local files and cloud apps." />
-  <!-- <meta property="og:image" content="https://your-website-url.com/og-image.png" /> -->
+    content="A desktop AI agent that automates repetitive tasks securely on your own machine. Connect your daily tools and save hours every week." />
+  <!-- <meta property="og:image" content="https://ai-worker.tech/og-image.png" /> -->
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://ai-worker.tech/" />
-  <meta property="twitter:title" content="AI-Worker | AI Agent for Workflow Automation" />
+  <meta property="twitter:title" content="AI-Worker | Automate Your Daily Work" />
   <meta property="twitter:description"
-    content="The first voice-native AI agent for general workflow automation. Connect LLMs to your local files and cloud apps." />
+    content="A desktop AI agent that automates repetitive tasks securely on your own machine. Connect your daily tools and save hours every week." />
   <!-- <meta property="twitter:image" content="https://ai-worker.tech/twitter-image.png" /> -->
 
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#020617" />
   <link rel="canonical" href="https://ai-worker.tech/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI agent summary" />
 
-  <title>AI-Worker | AI Agent for General Workflow Automation</title>
+  <title>AI-Worker | Automate Your Daily Workflows</title>
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "AI-Worker",
-      "alternateName": "AI-Worker Automation Agent",
-      "applicationCategory": "Productivity, Workflow Automation",
+      "alternateName": "AI Worker Desktop Agent",
+      "applicationCategory": "Productivity",
       "operatingSystem": "macOS, Windows, Linux",
-      "keywords": "workflow automation, general work flow automation, AI agent, local LLM",
-      "description": "The first voice-native desktop AI agent for general workflow automation. Connect Gemini, Claude, or local LLMs to your files and apps using the Model Context Protocol (MCP) to automate complex tasks natively.",
+      "keywords": "workflow automation, desktop assistant, task automation, productivity, AI tools",
+      "description": "A desktop AI agent that automates repetitive tasks on your machine. Connect your daily tools and save hours every week.",
       "offers": {
         "@type": "Offer",
         "price": "0"
@@ -60,12 +64,12 @@
           },
           colors: {
             brand: {
-              dark: '#020617', // Slate 950
-              primary: '#6366f1', // Indigo 500
-              teal: '#0d9488', // Teal 600
-              tealHover: '#0f766e', // Teal 700
-              surface: '#0f172a', // Slate 900
-              card: '#0f111a', // Darker card bg
+              dark: '#020617',
+              primary: '#6366f1',
+              teal: '#0d9488',
+              tealHover: '#0f766e',
+              surface: '#0f172a',
+              card: '#0f111a',
             }
           },
           backgroundImage: {
@@ -84,6 +88,7 @@
     .gradient-text {
       background: linear-gradient(to right, #2dd4bf, #818cf8, #c084fc);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -126,19 +131,16 @@
 <body>
   <div id="root"></div>
   <noscript>
-    <h1>AI Agent for General Workflow Automation</h1>
-    <p>AI-Worker is the first voice-native desktop AI agent workspace designed specifically for general workflow
-      automation. Connect Gemini, Claude, or local LLMs to your files and apps using the Model Context Protocol (MCP) to
-      seamlessly automate tasks without context switching.</p>
+    <h1>A Desktop Agent for Your Tools</h1>
+    <p>AI-Worker is a desktop application designed to automate repetitive tasks. Connect to your daily tools and
+      seamlessly automate your workflows directly on your machine.</p>
 
-    <h2>The Universal "USB-C" for AI Agents</h2>
-    <p>We use the open standard <strong>Model Context Protocol (MCP)</strong>. This means your workflow automation AI
-      agent doesn't just chat—it securely plugs into your existing tools, whether they are in the cloud, APIs, or on
-      your native hard drive.</p>
+    <h2>Connects to the Software You Use</h2>
+    <p>Our agent securely works alongside you, operating web applications and local software to speed up your routine
+      tasks without complex setups.</p>
 
-    <h2>Ready to automate your cross-platform workflows?</h2>
-    <p>Join 10,000+ users leveraging our AI agent for general workflow automation. Start automating repetitive tasks by
-      talking natively to your workspace.</p>
+    <h2>Start automating today</h2>
+    <p>Join thousands of users using AI-Worker to get more done in less time. Download the beta to get started.</p>
   </noscript>
   <script type="module" src="/index.tsx"></script>
 </body>

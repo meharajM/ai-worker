@@ -1,7 +1,7 @@
 import React from 'react';
-import { Mic, Lock, MessageSquare, Database, Settings, Bot } from 'lucide-react';
+import { Send, Lock, MessageSquare, Database, Settings, Bot } from 'lucide-react';
 
-const VoiceDemo: React.FC = () => {
+const AgentDemo: React.FC = () => {
   return (
     <div className="w-full h-full min-h-[500px] flex flex-col font-sans select-none">
       {/* Window Title Bar */}
@@ -47,7 +47,7 @@ const VoiceDemo: React.FC = () => {
                 <h4 className="text-white font-bold mb-1">AI Worker</h4>
                 <p className="text-gray-300 leading-relaxed text-sm">
                   I'm ready. I'm connected to <span className="bg-[#064e3b] text-[#34d399] px-1.5 py-0.5 rounded text-xs font-mono">Google Drive</span> and <span className="bg-[#451a03] text-[#fbbf24] px-1.5 py-0.5 rounded text-xs font-mono">Local Calendar</span>.
-                  <br />Press the mic button to start.
+                  <br />Type your prompt to start.
                 </p>
               </div>
             </div>
@@ -58,16 +58,13 @@ const VoiceDemo: React.FC = () => {
             <button
               className="w-full p-4 rounded-xl border border-white/10 flex items-center gap-4 transition-all duration-300 group bg-[#1e293b]/50 hover:bg-[#1e293b] hover:border-white/20 cursor-default"
             >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors bg-[#ef4444] group-hover:scale-105">
-                <Mic className="text-white w-6 h-6" />
+              <div className="text-left flex-1 flex items-center">
+                <p className="text-gray-500 font-medium truncate">
+                  Type your request...
+                </p>
               </div>
-              <div className="text-left flex-1">
-                <p className="text-xs font-bold tracking-wider uppercase mb-0.5 text-gray-500">
-                  Ready
-                </p>
-                <p className="text-white font-medium truncate">
-                  Click mic to speak...
-                </p>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors bg-brand-primary group-hover:scale-105">
+                <Send className="text-white w-6 h-6" />
               </div>
             </button>
           </div>
@@ -78,4 +75,4 @@ const VoiceDemo: React.FC = () => {
   );
 };
 
-export default VoiceDemo;
+export default AgentDemo;

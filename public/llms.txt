@@ -1,0 +1,18 @@
+# AI-Worker
+
+AI-Worker is the ultimate desktop software designed to eliminate your busywork. Delegate tedious tasks, connect to your daily tools, and automate your workflow seamlessly so you can focus on exactly what matters.
+
+## Value Proposition
+- Automate tedious tasks and get more done with less effort.
+- Connect your daily tools (Calendar, Drive, Slack, Application Databases, etc.) via open standard Model Context Protocol (MCP).
+- Private & Secure: Your proprietary data never leaves your computer.
+- Smart Reliability: Handless temporary errors and website changes automatically with state-of-the-art self-healing execution engine.
+
+## Use Cases
+- General work flow automation.
+- Autonomous AI agent execution.
+- Cross-platform native connections.
+
+## Quick Links
+- Official Website: https://ai-worker.tech/
+- Features: https://ai-worker.tech/#features
