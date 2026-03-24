@@ -4,30 +4,41 @@ import { trackClick } from './utils/analytics';
 import FeatureCard from './components/FeatureCard';
 import AgentDemo from './components/AgentDemo';
 import DownloadPage from './components/DownloadPage';
+import ProductsPage from './components/ProductsPage';
 import { Network, Shield, Play, Check, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
-  const [page, setPage] = React.useState<'home' | 'download'>(() => {
+  const [page, setPage] = React.useState<'home' | 'download' | 'products'>(() => {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
-    return path === '/download' ? 'download' : 'home';
+    if (path === '/download') return 'download';
+    if (path === '/products') return 'products';
+    return 'home';
   });
 
   React.useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname.replace(/\/$/, '') || '/';
-      setPage(path === '/download' ? 'download' : 'home');
+      if (path === '/download') setPage('download');
+      else if (path === '/products') setPage('products');
+      else setPage('home');
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigate = (newPage: 'home' | 'download') => {
-    const path = newPage === 'download' ? '/download' : '/';
+  const navigate = (newPage: 'home' | 'download' | 'products') => {
+    let path = '/';
+    if (newPage === 'download') path = '/download';
+    if (newPage === 'products') path = '/products';
     window.history.pushState({}, '', path);
     setPage(newPage);
     window.scrollTo(0, 0);
   };
+
+  if (page === 'products') {
+    return <ProductsPage onBack={() => navigate('home')} />;
+  }
 
   if (page === 'download') {
     return <DownloadPage onBack={() => navigate('home')} />;
@@ -35,7 +46,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen font-sans selection:bg-brand-teal selection:text-white mesh-bg overflow-x-hidden text-white">
-      <Navbar onDownloadClick={() => navigate('download')} onHomeClick={() => navigate('home')} />
+      <Navbar onDownloadClick={() => navigate('download')} onHomeClick={() => navigate('home')} onProductsClick={() => navigate('products')} />
       <main>
 
       {/* Hero Section */}
@@ -219,6 +230,9 @@ const App: React.FC = () => {
           <nav aria-label="Footer navigation" className="flex gap-8 text-sm text-gray-400">
             <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#demo" className="hover:text-white transition-colors">Demo</a>
+            <button
+              onClick={() => navigate('products')}
+              className="hover:text-white transition-colors">Products</button>
             <button
               onClick={() => navigate('download')}
               className="hover:text-white transition-colors">Download</button>

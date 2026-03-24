@@ -5,9 +5,10 @@ import { trackDownload } from '../utils/analytics';
 interface NavbarProps {
   onDownloadClick?: () => void;
   onHomeClick?: () => void;
+  onProductsClick?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onDownloadClick, onHomeClick }) => {
+const Navbar: React.FC<NavbarProps> = ({ onDownloadClick, onHomeClick, onProductsClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -55,6 +56,12 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick, onHomeClick }) => {
                   {link.name}
                 </a>
               ))}
+              <button
+                onClick={() => onProductsClick?.()}
+                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Products
+              </button>
             </div>
           </div>
 
@@ -93,6 +100,15 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick, onHomeClick }) => {
                 {link.name}
               </a>
             ))}
+            <button
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onProductsClick?.();
+              }}
+            >
+              Products
+            </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

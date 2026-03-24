@@ -1,70 +1,80 @@
 # AI-Worker
 
-> AI-Worker is a free desktop AI agent that automates repetitive tasks entirely on your machine.
-> Connect your daily tools via the Model Context Protocol (MCP) and let AI-Worker handle your busywork — privately, with no data ever leaving your device.
+> AI-Worker is a privacy-first desktop AI agent and product company building local, self-hosted automation tools for individuals and small businesses.
+> All products run 100% on the user's machine — no cloud required, no data ever leaves the device.
 
-## Product Summary
+## Products
+
+### 1. AI-Worker (Available Now)
 
 - **Name**: AI-Worker
 - **Version**: 1.2 (Beta)
 - **Category**: Productivity / Workflow Automation
 - **Price**: Free (Early Access)
-- **License**: Requires no account or credit card
+- **Platforms**: macOS 12+, Windows 10/11, Linux
+- **Page**: https://ai-worker.tech/
+- **Download**: https://ai-worker.tech/download
 
-## Key Capabilities
-
+**Key Capabilities**:
 - Automate repetitive tasks without writing code
 - Operate real desktop and web applications (click, type, read data)
 - Connect tools via MCP: Google Drive, Slack, Calendar, databases, and more
 - Private & local — all processing happens on your machine
-- Self-healing automation engine — handles temporary errors and website changes automatically
+- Self-healing automation engine — handles temporary errors automatically
 - Supports autonomous multi-step agent execution
 
-## Supported Platforms
+**Installation**:
 
-- macOS 12+ (Apple Silicon M1/M2/M3 and Intel x86_64)
-- Windows 10 / Windows 11 (x64)
-- Linux (x86_64)
-
-## Installation
-
-### macOS (Terminal)
-```bash
+macOS / Linux (Terminal):
 curl -fsSL https://downloads.ai-worker.tech/install-mac.sh | bash
-```
 
-### Linux (Terminal)
-```bash
-curl -fsSL https://downloads.ai-worker.tech/install-linux.sh | bash
-```
-
-### Windows (PowerShell)
-```powershell
+Windows (PowerShell):
 irm https://downloads.ai-worker.tech/install-windows.ps1 | iex
-```
 
-## Quick Links
+---
 
-- Official Website: https://ai-worker.tech/
-- Download Page: https://ai-worker.tech/download
-- Features: https://ai-worker.tech/#features
-- Waitlist (Google Form): https://forms.gle/jiR16e2m4od5E2po7
+### 2. WA Co-Pilot Self-Hosted (Coming Soon — Target: March 2026)
+
+- **Name**: WA Co-Pilot Self-Hosted
+- **Category**: WhatsApp AI Customer Support / Business Automation
+- **Price**: One-time license ₹4,999 (Pro) — no recurring fees
+- **Status**: Upcoming — demo requests open
+- **Page**: https://ai-worker.tech/products
+- **Request Demo**: https://forms.gle/viNJoRzTbiwVBtTS6
+
+**One-Sentence Summary**:
+A single executable that transforms any personal WhatsApp number into a 24×7 AI customer support agent with a local dashboard and daily voice summaries — 100% self-hosted, zero cloud, zero Meta API fees.
+
+**Key Features**:
+- Uses personal WhatsApp number via Baileys multi-device protocol (no Meta API)
+- Local LLM (Llama-3.2-3B / Phi-3 via Ollama) — 8GB RAM minimum
+- RAG engine: answers from synced PDF, Excel, Google Sheets knowledge base
+- Anti-ban engine: Gaussian reply delays, typing simulation, volume throttling
+- Vertical knowledge packs: HVAC, Clinics, Salons, Generic
+- Warm handoff + frustration detection
+- Daily voice note summary + local browser dashboard (localhost:3000)
+- One-time installer: Windows .exe, macOS .dmg, Linux AppImage
+
+**Target Audience**:
+Indian local service businesses (plumbers, salons, clinics) using personal WhatsApp who cannot afford Meta Business API.
+
+**Tech Stack**:
+Electron 32 + Baileys + Ollama + ChromaDB + SQLite + Vite React dashboard
+
+---
+
+## Company
+
+- **Website**: https://ai-worker.tech/
+- **Products Page**: https://ai-worker.tech/products
+- **Download Page**: https://ai-worker.tech/download
+- **Waitlist (AI-Worker)**: https://forms.gle/jiR16e2m4od5E2po7
+- **Demo Request (WA Co-Pilot)**: https://forms.gle/viNJoRzTbiwVBtTS6
 
 ## Use Cases
 
-- Automate calendar scheduling and email management
+- Automate calendar scheduling, email management, and document tasks (AI-Worker)
+- 24×7 WhatsApp customer support for small businesses without IT staff (WA Co-Pilot)
 - Summarise and organise Google Drive documents
-- Perform autonomous research and reporting tasks
-- Fill out repetitive web forms automatically
+- Real-time appointment booking via WhatsApp with no human intervention
 - Cross-application data entry and synchronisation
-
-## Technical Details
-
-- Uses the Model Context Protocol (MCP) for tool integration
-- Browser automation powered by Playwright
-- Runs as a native desktop application
-- No cloud server required; operates fully offline
-
-## About
-
-AI-Worker is built for individuals and small teams who want to reclaim their time from repetitive, manual workflows. It acts as a private AI assistant that can see your screen, understand context, and take actions — like a skilled colleague who never gets tired.

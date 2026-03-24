@@ -19,7 +19,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="AI-Worker" />
   <meta property="og:url" content="https://ai-worker.tech/" />
-  <meta property="og:title" content="AI-Worker — Free Desktop AI Agent for macOS, Windows & Linux" />
+  <meta property="og:title" content="AI-Worker | Automate Your Daily Work flow | Free Desktop AI Agent" />
   <meta property="og:description"
     content="Automate repetitive tasks privately on your own machine. Connect your daily tools via MCP and let AI-Worker handle the busywork." />
   <!-- <meta property="og:image" content="https://ai-worker.tech/og-image.png" /> -->
@@ -115,6 +115,66 @@
   }
   </script>
 
+  <!-- Structured Data: WA Co-Pilot SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WA Co-Pilot Self-Hosted",
+    "alternateName": "WhatsApp AI Customer Support Agent",
+    "url": "https://ai-worker.tech/products",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Customer Service Automation",
+    "operatingSystem": "Windows 10, Windows 11, macOS 12+, Linux",
+    "description": "A self-hosted desktop application that turns any personal WhatsApp number into a 24×7 AI customer support agent. Includes a local dashboard, daily voice summary and RAG-based knowledge retrieval. No cloud server, no Meta API, no per-message fees.",
+    "keywords": "whatsapp ai bot, self-hosted whatsapp automation, local ai customer support, whatsapp business ai, india smb whatsapp",
+    "offers": {
+      "@type": "Offer",
+      "price": "4999",
+      "priceCurrency": "INR",
+      "description": "One-time Pro license. No recurring fees."
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI-Worker",
+      "url": "https://ai-worker.tech/"
+    },
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Request a Demo",
+      "target": "https://forms.gle/viNJoRzTbiwVBtTS6"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: Product Catalog ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "AI-Worker Products & Solutions",
+    "url": "https://ai-worker.tech/products",
+    "description": "Privacy-first, self-hosted automation tools for individuals and small businesses.",
+    "numberOfItems": 2,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "AI-Worker",
+        "url": "https://ai-worker.tech/",
+        "description": "Free desktop AI agent for automating workflows locally via MCP tools."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "WA Co-Pilot Self-Hosted",
+        "url": "https://ai-worker.tech/products",
+        "description": "Self-hosted WhatsApp AI support agent for local businesses. No cloud, no Meta API fees."
+      }
+    ]
+  }
+  </script>
+
   <!-- Performance: Preconnect to external origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -202,7 +262,9 @@
   <noscript>
     <main>
       <h1>AI-Worker — Free Desktop AI Agent for macOS, Windows & Linux</h1>
-      <p>AI-Worker is a free desktop application that automates repetitive tasks locally and privately. Connect your daily tools — Google Drive, Slack, Calendar, and more — via the Model Context Protocol (MCP) and let the AI agent handle your busywork.</p>
+      <p>AI-Worker is a free desktop application that automates repetitive tasks locally and privately. Connect your
+        daily tools — Google Drive, Slack, Calendar, and more — via the Model Context Protocol (MCP) and let the AI
+        agent handle your busywork.</p>
 
       <h2>Key Features</h2>
       <ul>
@@ -221,10 +283,12 @@
       <pre><code>irm https://downloads.ai-worker.tech/install-windows.ps1 | iex</code></pre>
 
       <h2>How It Works</h2>
-      <p>AI-Worker uses browser automation and the Model Context Protocol to perform real actions inside your apps — clicking, typing, reading data — just like a human assistant would, but faster and without supervision.</p>
+      <p>AI-Worker uses browser automation and the Model Context Protocol to perform real actions inside your apps —
+        clicking, typing, reading data — just like a human assistant would, but faster and without supervision.</p>
 
       <h2>Get Started</h2>
-      <p>Download the beta at <a href="https://ai-worker.tech/download">ai-worker.tech/download</a>. Free forever during early access.</p>
+      <p>Download the beta at <a href="https://ai-worker.tech/download">ai-worker.tech/download</a>. Free forever during
+        early access.</p>
     </main>
   </noscript>
   <script type="module" src="/index.tsx"></script>
