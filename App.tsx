@@ -8,15 +8,34 @@ import { Network, Shield, Play, Check, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
-  const [page, setPage] = useState<'home' | 'download'>('home');
+  const [page, setPage] = React.useState<'home' | 'download'>(() => {
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    return path === '/download' ? 'download' : 'home';
+  });
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.replace(/\/$/, '') || '/';
+      setPage(path === '/download' ? 'download' : 'home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigate = (newPage: 'home' | 'download') => {
+    const path = newPage === 'download' ? '/download' : '/';
+    window.history.pushState({}, '', path);
+    setPage(newPage);
+    window.scrollTo(0, 0);
+  };
 
   if (page === 'download') {
-    return <DownloadPage onBack={() => setPage('home')} />;
+    return <DownloadPage onBack={() => navigate('home')} />;
   }
 
   return (
     <div className="min-h-screen font-sans selection:bg-brand-teal selection:text-white mesh-bg overflow-x-hidden text-white">
-      <Navbar onDownloadClick={() => setPage('download')} />
+      <Navbar onDownloadClick={() => navigate('download')} onHomeClick={() => navigate('home')} />
       <main>
 
       {/* Hero Section */}
@@ -46,7 +65,7 @@ const App: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button
-                onClick={() => { trackClick('download_beta', { location: 'hero' }); setPage('download'); }}
+                onClick={() => { trackClick('download_beta', { location: 'hero' }); navigate('download'); }}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
                 Download Beta
               </button>
@@ -201,7 +220,7 @@ const App: React.FC = () => {
             <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#demo" className="hover:text-white transition-colors">Demo</a>
             <button
-              onClick={() => setPage('download')}
+              onClick={() => navigate('download')}
               className="hover:text-white transition-colors">Download</button>
           </nav>
 

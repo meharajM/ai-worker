@@ -4,9 +4,10 @@ import { trackDownload } from '../utils/analytics';
 
 interface NavbarProps {
   onDownloadClick?: () => void;
+  onHomeClick?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
+const Navbar: React.FC<NavbarProps> = ({ onDownloadClick, onHomeClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -32,7 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+          <div 
+            onClick={() => onHomeClick?.()}
+            className="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+          >
             <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-purple rounded-xl flex items-center justify-center">
               <Cpu className="text-white w-6 h-6" />
             </div>
