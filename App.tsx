@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import { trackClick } from './utils/analytics';
 import FeatureCard from './components/FeatureCard';
 import AgentDemo from './components/AgentDemo';
 import { Network, Shield, Play, Check, ArrowRight, Lock } from 'lucide-react';
@@ -40,10 +41,14 @@ const App: React.FC = () => {
                 href="https://forms.gle/jiR16e2m4od5E2po7"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackClick('join_waitlist', { location: 'hero' })}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
                 Join Waiting List
               </a>
-              <a href="#demo" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg text-white bg-[#1e293b] hover:bg-[#334155] transition-all">
+              <a 
+                href="#demo" 
+                onClick={() => trackClick('watch_demo', { location: 'hero' })}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg text-white bg-[#1e293b] hover:bg-[#334155] transition-all">
                 <Play size={20} fill="currentColor" className="w-5 h-5 text-gray-400" />
                 Watch Demo
               </a>
@@ -165,6 +170,7 @@ const App: React.FC = () => {
                 href="https://forms.gle/jiR16e2m4od5E2po7"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackClick('join_waitlist', { location: 'pricing' })}
                 className="w-full md:w-auto px-12 py-4 bg-white hover:bg-gray-100 text-black font-bold rounded-xl transition-colors text-lg">
                 Join Waiting List
               </a>
@@ -193,6 +199,7 @@ const App: React.FC = () => {
             href="https://forms.gle/jiR16e2m4od5E2po7"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackClick('join_waitlist', { location: 'footer' })}
             className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-gray-200 transition-colors">
             Join Waiting List
           </a>
