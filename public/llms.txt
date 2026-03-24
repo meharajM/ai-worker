@@ -1,18 +1,70 @@
 # AI-Worker
 
-AI-Worker is the ultimate desktop software designed to eliminate your busywork. Delegate tedious tasks, connect to your daily tools, and automate your workflow seamlessly so you can focus on exactly what matters.
+> AI-Worker is a free desktop AI agent that automates repetitive tasks entirely on your machine.
+> Connect your daily tools via the Model Context Protocol (MCP) and let AI-Worker handle your busywork — privately, with no data ever leaving your device.
 
-## Value Proposition
-- Automate tedious tasks and get more done with less effort.
-- Connect your daily tools (Calendar, Drive, Slack, Application Databases, etc.) via open standard Model Context Protocol (MCP).
-- Private & Secure: Your proprietary data never leaves your computer.
-- Smart Reliability: Handless temporary errors and website changes automatically with state-of-the-art self-healing execution engine.
+## Product Summary
 
-## Use Cases
-- General work flow automation.
-- Autonomous AI agent execution.
-- Cross-platform native connections.
+- **Name**: AI-Worker
+- **Version**: 1.2 (Beta)
+- **Category**: Productivity / Workflow Automation
+- **Price**: Free (Early Access)
+- **License**: Requires no account or credit card
+
+## Key Capabilities
+
+- Automate repetitive tasks without writing code
+- Operate real desktop and web applications (click, type, read data)
+- Connect tools via MCP: Google Drive, Slack, Calendar, databases, and more
+- Private & local — all processing happens on your machine
+- Self-healing automation engine — handles temporary errors and website changes automatically
+- Supports autonomous multi-step agent execution
+
+## Supported Platforms
+
+- macOS 12+ (Apple Silicon M1/M2/M3 and Intel x86_64)
+- Windows 10 / Windows 11 (x64)
+- Linux (x86_64)
+
+## Installation
+
+### macOS (Terminal)
+```bash
+curl -fsSL https://downloads.ai-worker.tech/install-mac.sh | bash
+```
+
+### Linux (Terminal)
+```bash
+curl -fsSL https://downloads.ai-worker.tech/install-linux.sh | bash
+```
+
+### Windows (PowerShell)
+```powershell
+irm https://downloads.ai-worker.tech/install-windows.ps1 | iex
+```
 
 ## Quick Links
+
 - Official Website: https://ai-worker.tech/
+- Download Page: https://ai-worker.tech/download
 - Features: https://ai-worker.tech/#features
+- Waitlist (Google Form): https://forms.gle/jiR16e2m4od5E2po7
+
+## Use Cases
+
+- Automate calendar scheduling and email management
+- Summarise and organise Google Drive documents
+- Perform autonomous research and reporting tasks
+- Fill out repetitive web forms automatically
+- Cross-application data entry and synchronisation
+
+## Technical Details
+
+- Uses the Model Context Protocol (MCP) for tool integration
+- Browser automation powered by Playwright
+- Runs as a native desktop application
+- No cloud server required; operates fully offline
+
+## About
+
+AI-Worker is built for individuals and small teams who want to reclaim their time from repetitive, manual workflows. It acts as a private AI assistant that can see your screen, understand context, and take actions — like a skilled colleague who never gets tired.

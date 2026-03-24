@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Cpu } from 'lucide-react';
 import { trackDownload } from '../utils/analytics';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onDownloadClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -52,12 +56,11 @@ const Navbar: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a 
-              href="#download"
-              onClick={() => trackDownload('beta_installer', 'unknown', { location: 'navbar_desktop' })}
+            <button
+              onClick={() => { trackDownload('beta_installer', 'unknown', { location: 'navbar_desktop' }); onDownloadClick?.(); }}
               className="inline-block bg-white text-brand-dark hover:bg-gray-100 px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               Download Beta
-            </a>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -86,15 +89,15 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href="#download" 
+            <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 trackDownload('beta_installer', 'unknown', { location: 'navbar_mobile' });
-              }} 
+                onDownloadClick?.();
+              }}
               className="w-full text-left bg-brand-primary/20 text-brand-primary block px-3 py-2 rounded-md text-base font-medium mt-4">
               Download Beta
-            </a>
+            </button>
           </div>
         </div>
       )}

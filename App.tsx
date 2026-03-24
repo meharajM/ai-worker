@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import { trackClick } from './utils/analytics';
 import FeatureCard from './components/FeatureCard';
 import AgentDemo from './components/AgentDemo';
-import { Network, Shield, Play, Check, ArrowRight, Lock } from 'lucide-react';
+import DownloadPage from './components/DownloadPage';
+import { Network, Shield, Play, Check, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
+  const [page, setPage] = useState<'home' | 'download'>('home');
+
+  if (page === 'download') {
+    return <DownloadPage onBack={() => setPage('home')} />;
+  }
+
   return (
     <div className="min-h-screen font-sans selection:bg-brand-teal selection:text-white mesh-bg overflow-x-hidden text-white">
-      <Navbar />
+      <Navbar onDownloadClick={() => setPage('download')} />
+      <main>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 max-w-7xl mx-auto">
+      <section aria-labelledby="hero-heading" className="relative pt-32 pb-20 px-4 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left: Text Content */}
@@ -27,7 +35,7 @@ const App: React.FC = () => {
               v1.2: Local Tool Automation
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+            <h1 id="hero-heading" className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
               Automate your <br />
               <span className="gradient-text">General Workflows.</span>
             </h1>
@@ -37,14 +45,11 @@ const App: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a
-                href="https://forms.gle/jiR16e2m4od5E2po7"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackClick('join_waitlist', { location: 'hero' })}
+              <button
+                onClick={() => { trackClick('download_beta', { location: 'hero' }); setPage('download'); }}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
-                Join Waiting List
-              </a>
+                Download Beta
+              </button>
               <a 
                 href="#demo" 
                 onClick={() => trackClick('watch_demo', { location: 'hero' })}
@@ -54,8 +59,8 @@ const App: React.FC = () => {
               </a>
             </div>
 
-            <p className="mt-6 text-xs text-gray-500">
-              * Works with macOS 12+ and Windows 11. Linux coming soon.
+            <p className="mt-6 text-xs text-gray-500" aria-label="Supported platforms">
+              Works with macOS 12+, Windows 10/11, and Linux.
             </p>
           </motion.div>
 
@@ -75,10 +80,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Features Section (3 Specific Cards) */}
-      <section id="features" className="py-24 bg-brand-surface/50 border-t border-white/5">
+      <section id="features" aria-labelledby="features-heading" className="py-24 bg-brand-surface/50 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">An Assistant For Your Tools</h2>
+            <h2 id="features-heading" className="text-3xl md:text-5xl font-bold mb-6 text-white">An Assistant For Your Tools</h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Our AI agent doesn't just chat—it operates your tools alongside you, driving UI interactions and command lines to complete repetitive tasks in seconds.
             </p>
@@ -129,9 +134,9 @@ const App: React.FC = () => {
       </section>
 
       {/* Pricing / Early Access Section */}
-      <section id="download" className="py-24 px-4">
+      <section id="download" aria-labelledby="download-heading" className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Ready to automate your workflows?</h2>
+          <h2 id="download-heading" className="text-3xl md:text-5xl font-bold mb-4 text-white">Ready to automate your workflows?</h2>
           <p className="text-gray-400 mb-12">Join thousands of teams already automating their day-to-day tasks.</p>
 
           <motion.div
@@ -181,28 +186,36 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#020617] py-12 border-t border-white/5">
+      </main>
+      <footer aria-label="Site footer" className="bg-[#020617] py-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-brand-teal to-brand-primary rounded-lg flex items-center justify-center">
-              <Network className="text-white w-5 h-5" />
+              <Network className="text-white w-5 h-5" aria-hidden="true" />
             </div>
             <span className="font-bold text-lg">AI-Worker</span>
+            <span className="sr-only"> — Free Desktop AI Agent</span>
           </div>
 
-          <div className="flex gap-8 text-sm text-gray-400">
-            <a href="#features" className="hover:text-white">Features</a>
-            <a href="#demo" className="hover:text-white">Demo</a>
-          </div>
+          <nav aria-label="Footer navigation" className="flex gap-8 text-sm text-gray-400">
+            <a href="#features" className="hover:text-white transition-colors">Features</a>
+            <a href="#demo" className="hover:text-white transition-colors">Demo</a>
+            <button
+              onClick={() => setPage('download')}
+              className="hover:text-white transition-colors">Download</button>
+          </nav>
 
-          <a
-            href="https://forms.gle/jiR16e2m4od5E2po7"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackClick('join_waitlist', { location: 'footer' })}
-            className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-gray-200 transition-colors">
-            Join Waiting List
-          </a>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <a
+              href="https://forms.gle/jiR16e2m4od5E2po7"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('join_waitlist', { location: 'footer' })}
+              className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-gray-200 transition-colors">
+              Join Waiting List
+            </a>
+            <p className="text-xs text-gray-600">&copy; {new Date().getFullYear()} AI-Worker. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>

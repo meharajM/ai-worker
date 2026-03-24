@@ -4,53 +4,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Core SEO -->
   <meta name="description"
-    content="AI-Worker is a desktop AI agent that automates repetitive tasks locally and securely. Connect your files and everyday tools to save hours across your workflows." />
+    content="AI-Worker is a free desktop AI agent that automates repetitive tasks locally and securely. Install in seconds on macOS, Windows, or Linux — no account required." />
   <meta name="keywords"
-    content="workflow automation, AI assistant, productivity software, task automation, desktop agent, AI tool, smart automation, business productivity" />
+    content="workflow automation, AI assistant, desktop AI agent, task automation, local AI, private AI, MCP tools, productivity software, mac AI, windows AI, linux AI" />
+  <meta name="author" content="AI-Worker" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="AI-Worker" />
   <meta property="og:url" content="https://ai-worker.tech/" />
-  <meta property="og:title" content="AI-Worker | Automate Your Daily Work" />
+  <meta property="og:title" content="AI-Worker — Free Desktop AI Agent for macOS, Windows & Linux" />
   <meta property="og:description"
-    content="A desktop AI agent that automates repetitive tasks securely on your own machine. Connect your daily tools and save hours every week." />
+    content="Automate repetitive tasks privately on your own machine. Connect your daily tools via MCP and let AI-Worker handle the busywork." />
   <!-- <meta property="og:image" content="https://ai-worker.tech/og-image.png" /> -->
+  <!-- <meta property="og:image:width" content="1200" /> -->
+  <!-- <meta property="og:image:height" content="630" /> -->
+  <!-- <meta property="og:image:alt" content="AI-Worker desktop interface showing an active automation session" /> -->
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://ai-worker.tech/" />
-  <meta property="twitter:title" content="AI-Worker | Automate Your Daily Work" />
-  <meta property="twitter:description"
-    content="A desktop AI agent that automates repetitive tasks securely on your own machine. Connect your daily tools and save hours every week." />
-  <!-- <meta property="twitter:image" content="https://ai-worker.tech/twitter-image.png" /> -->
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@aiworkertech" />
+  <meta name="twitter:url" content="https://ai-worker.tech/" />
+  <meta name="twitter:title" content="AI-Worker — Free Desktop AI Agent" />
+  <meta name="twitter:description"
+    content="Automate your workflows locally. Private, fast, free. Install in seconds on Mac, Windows or Linux." />
+  <!-- <meta name="twitter:image" content="https://ai-worker.tech/twitter-image.png" /> -->
+  <!-- <meta name="twitter:image:alt" content="AI-Worker desktop interface" /> -->
+
+  <!-- Apple / PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="AI-Worker" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="AI-Worker" />
 
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#020617" />
   <link rel="canonical" href="https://ai-worker.tech/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI agent summary" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI agent context file" />
 
-  <title>AI-Worker | Automate Your Daily Workflows</title>
+  <title>AI-Worker | Free Desktop AI Agent — Automate Your Workflows</title>
 
+  <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI-Worker",
+    "alternateName": "AI Worker Desktop Agent",
+    "url": "https://ai-worker.tech/",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Productivity",
+    "operatingSystem": "macOS 12+, Windows 10, Windows 11, Linux",
+    "softwareVersion": "1.2",
+    "releaseNotes": "Local Tool Automation with MCP support",
+    "keywords": "workflow automation, desktop AI agent, task automation, MCP, local AI, private AI",
+    "description": "AI-Worker is a free desktop AI agent that automates repetitive tasks entirely on your machine. Connect to Google Drive, Slack, Calendar, and more via the Model Context Protocol (MCP). Private by design — your data never leaves your device.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://ai-worker.tech/download",
+    "installUrl": "https://ai-worker.tech/download",
+    "publisher": {
+      "@type": "Organization",
       "name": "AI-Worker",
-      "alternateName": "AI Worker Desktop Agent",
-      "applicationCategory": "Productivity",
-      "operatingSystem": "macOS, Windows, Linux",
-      "keywords": "workflow automation, desktop assistant, task automation, productivity, AI tools",
-      "description": "A desktop AI agent that automates repetitive tasks on your machine. Connect your daily tools and save hours every week.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0"
+      "url": "https://ai-worker.tech/"
+    },
+    "potentialAction": [
+      {
+        "@type": "DownloadAction",
+        "target": "https://downloads.ai-worker.tech/install-mac.sh",
+        "name": "Install on macOS"
+      },
+      {
+        "@type": "DownloadAction",
+        "target": "https://downloads.ai-worker.tech/install-windows.ps1",
+        "name": "Install on Windows"
+      },
+      {
+        "@type": "DownloadAction",
+        "target": "https://downloads.ai-worker.tech/install-linux.sh",
+        "name": "Install on Linux"
       }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI-Worker",
+    "url": "https://ai-worker.tech/",
+    "description": "Official website for AI-Worker, the free desktop AI agent for workflow automation.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ai-worker.tech/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
-    </script>
+  }
+  </script>
+
+  <!-- Performance: Preconnect to external origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://esm.sh" />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -131,16 +200,32 @@
 <body>
   <div id="root"></div>
   <noscript>
-    <h1>A Desktop Agent for Your Tools</h1>
-    <p>AI-Worker is a desktop application designed to automate repetitive tasks. Connect to your daily tools and
-      seamlessly automate your workflows directly on your machine.</p>
+    <main>
+      <h1>AI-Worker — Free Desktop AI Agent for macOS, Windows & Linux</h1>
+      <p>AI-Worker is a free desktop application that automates repetitive tasks locally and privately. Connect your daily tools — Google Drive, Slack, Calendar, and more — via the Model Context Protocol (MCP) and let the AI agent handle your busywork.</p>
 
-    <h2>Connects to the Software You Use</h2>
-    <p>Our agent securely works alongside you, operating web applications and local software to speed up your routine
-      tasks without complex setups.</p>
+      <h2>Key Features</h2>
+      <ul>
+        <li>Automate repetitive tasks without writing code</li>
+        <li>Private &amp; local — your data never leaves your machine</li>
+        <li>Connect tools via MCP: Google Drive, Slack, Calendar, databases</li>
+        <li>Smart self-healing automation that handles errors automatically</li>
+        <li>Free during beta — no account, no credit card required</li>
+      </ul>
 
-    <h2>Start automating today</h2>
-    <p>Join thousands of users using AI-Worker to get more done in less time. Download the beta to get started.</p>
+      <h2>Install AI-Worker</h2>
+      <p>Available for macOS (Apple Silicon &amp; Intel), Windows 10/11, and Linux.</p>
+      <h3>macOS &amp; Linux (Terminal)</h3>
+      <pre><code>curl -fsSL https://downloads.ai-worker.tech/install-mac.sh | bash</code></pre>
+      <h3>Windows (PowerShell)</h3>
+      <pre><code>irm https://downloads.ai-worker.tech/install-windows.ps1 | iex</code></pre>
+
+      <h2>How It Works</h2>
+      <p>AI-Worker uses browser automation and the Model Context Protocol to perform real actions inside your apps — clicking, typing, reading data — just like a human assistant would, but faster and without supervision.</p>
+
+      <h2>Get Started</h2>
+      <p>Download the beta at <a href="https://ai-worker.tech/download">ai-worker.tech/download</a>. Free forever during early access.</p>
+    </main>
   </noscript>
   <script type="module" src="/index.tsx"></script>
 </body>

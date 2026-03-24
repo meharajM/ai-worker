@@ -1,6 +1,28 @@
-# Allow all search engines to crawl the entire site.
+# Allow all search engines and AI agents to crawl the entire site.
 User-agent: *
+Allow: /
+
+# Explicitly allow major AI / LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 # Sitemap location
 Sitemap: https://ai-worker.tech/sitemap.xml
+
+# AI context file — structured data for LLM agents
+# See: https://ai-worker.tech/llms.txt
