@@ -80,19 +80,33 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
   return (
     <button
       onClick={handleCopy}
-      className="flex-shrink-0 flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-gray-400 hover:text-white transition-all"
+      className="flex-shrink-0 flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-surface-elevated hover:bg-surface-hover border border-surface-border text-gray-400 hover:text-white transition-all overflow-hidden min-w-[80px] justify-center"
     >
-      {copied ? (
-        <>
-          <Check size={12} className="text-brand-teal" />
-          <span className="text-brand-teal">Copied!</span>
-        </>
-      ) : (
-        <>
-          <Copy size={12} />
-          Copy
-        </>
-      )}
+      <AnimatePresence mode="wait">
+        {copied ? (
+          <motion.div
+            key="copied"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            className="flex items-center gap-1.5"
+          >
+            <Check size={12} className="text-brand-teal" />
+            <span className="text-brand-teal font-medium">Copied!</span>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="copy"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            className="flex items-center gap-1.5"
+          >
+            <Copy size={12} />
+            <span>Copy</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </button>
   );
 };
@@ -108,9 +122,9 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="min-h-screen font-sans text-white mesh-bg overflow-x-hidden">
+    <div className="min-h-screen font-sans text-white bg-brand-dark overflow-x-hidden">
       {/* Header */}
-      <div className="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/10">
+      <div className="fixed top-0 left-0 w-full z-50 bg-brand-dark border-b border-surface-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-20 gap-4">
           <button
             onClick={onBack}
@@ -119,7 +133,7 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
             <ChevronLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
             Back
           </button>
-          <div className="h-5 w-px bg-white/10" />
+          <div className="h-5 w-px bg-surface-border" />
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-teal rounded-lg flex items-center justify-center">
               <Cpu className="text-white w-4 h-4" />
@@ -140,7 +154,7 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-teal text-sm font-medium mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-elevated border border-surface-border text-brand-teal text-sm font-medium mb-6">
             <span className="flex h-2 w-2 rounded-full bg-brand-teal animate-pulse" />
             Free Early Access — No Account Required
           </div>
@@ -171,8 +185,8 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
                 onClick={() => handleSelect(option)}
                 className={`relative flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-200 text-center cursor-pointer
                   ${isSelected
-                    ? 'bg-brand-teal/10 border-brand-teal/50 shadow-[0_0_24px_rgba(13,148,136,0.18)]'
-                    : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.06] hover:border-white/20'
+                    ? 'bg-surface-elevated border-brand-teal shadow-[0_0_24px_rgba(13,148,136,0.18)]'
+                    : 'bg-surface-card border-surface-border hover:bg-surface-hover hover:border-brand-teal'
                   }`}
               >
                 {option.badge && (
@@ -205,10 +219,10 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.3 }}
-            className="rounded-2xl border border-white/10 bg-[#0a0d16] overflow-hidden shadow-2xl mb-6"
+            className="rounded-2xl border border-surface-border bg-surface-base overflow-hidden shadow-2xl mb-6"
           >
             {/* Window chrome */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-surface-border bg-surface-card">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/60" />
@@ -239,7 +253,7 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="rounded-2xl border border-white/5 bg-white/[0.02] p-6"
+          className="rounded-2xl border border-surface-border bg-surface-card p-6"
         >
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">How it works</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
