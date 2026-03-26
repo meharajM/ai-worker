@@ -24,4 +24,5 @@ export interface FeatureCardProps {
   classNameIcon?: string;
   classNameTitle?: string;
   classNameDescription?: string;
+  centered?: boolean;
 }

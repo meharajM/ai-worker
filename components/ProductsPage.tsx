@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Cpu, Shield, MessageCircle, Server, FileText } from 'lucide-react';
+import { ChevronLeft, Cpu, Shield, MessageCircle, Server, FileText, Volume2, LayoutDashboard } from 'lucide-react';
 import { trackClick } from '../utils/analytics';
 
 interface ProductsPageProps {
@@ -38,7 +38,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onBack }) => {
             aria-label="Go back to Home page"
           >
             <ChevronLeft size={18} className="transition-transform" />
-            Back
+            Return to Home
           </motion.button>
           <div className="h-5 w-px bg-surface-border" />
           <div className="flex items-center gap-2">
@@ -61,7 +61,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onBack }) => {
             <span className="flex h-2 w-2 rounded-full bg-brand-teal animate-pulse" />
             Our Ecosystem
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          <h1 className="text-[clamp(2.5rem,5vw+1.5rem,4rem)] font-extrabold tracking-tight mb-6 leading-tight">
             Products & <span className="gradient-text">Solutions</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -86,54 +86,72 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onBack }) => {
               <div className="flex flex-col md:flex-row gap-12 items-start">
                 {/* Content */}
                 <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <h2 className="text-3xl font-bold text-white" itemProp="name">WA Co-Pilot <span className="text-gray-400">Self-Hosted</span></h2>
-                    <span className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 text-xs font-bold uppercase tracking-wider" aria-label="Status: Coming Soon">
-                      Coming Soon
-                    </span>
+                  <div className="flex flex-col items-center text-center mb-10">
+                    <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+                      <h2 className="text-3xl font-bold text-white" itemProp="name">WA Co-Pilot <span className="text-gray-400">Self-Hosted</span></h2>
+                      <span className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 text-xs font-bold uppercase tracking-wider" aria-label="Status: Coming Soon">
+                        Coming Soon
+                      </span>
+                    </div>
+
+                    <p className="text-xl text-gray-300 max-w-3xl font-light" itemProp="description">
+                      Turn any personal WhatsApp number into a 24×7 AI customer support agent + local dashboard. No cloud, no Meta API, no per-message fees.
+                    </p>
                   </div>
 
-                  <p className="text-xl text-gray-300 mb-6 font-light" itemProp="description">
-                    Turn any personal WhatsApp number into a 24×7 AI customer support agent + local dashboard. No cloud, no Meta API, no per-message fees.
-                  </p>
+                  <div className="flex flex-wrap justify-center gap-6 mb-12">
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Shield className="text-brand-teal w-7 h-7" />
+                      </div>
+                      <h4 className="font-bold text-xl text-white mb-3">100% Self-Hosted</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Desktop software runs locally. Full data sovereignty and privacy. Optional sleep mode ensures safety.</p>
+                    </div>
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <MessageCircle className="text-brand-teal w-7 h-7" />
+                      </div>
+                      <h4 className="font-bold text-xl text-white mb-2">Zero API Fees</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Uses your personal number via multi-device protocol. Avoid costly Meta API fees and rigid template approvals.</p>
+                    </div>
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Server className="text-brand-teal w-7 h-7" />
+                      </div>
+                      <h4 className="font-bold text-xl text-white mb-2">Local LLM + RAG</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Powered by local models (Llama-3.2-3B/Phi-3). Responds purely based on your synced PDFs, Sheets, and catalogs.</p>
+                    </div>
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <FileText className="text-brand-teal w-7 h-7" />
+                      </div>
+                      <h4 className="font-bold text-xl text-white mb-2">Vertical Ready</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Specialized knowledge packs included for Clinics, Salons, and local service businesses. Frustration handoff built-in.</p>
+                    </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                    <div className="flex items-start gap-4 bg-surface-elevated p-5 rounded-xl border border-surface-border hover:border-brand-teal transition-colors">
-                      <Shield className="text-brand-teal w-6 h-6 shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-bold text-base text-white mb-1.5">100% Self-Hosted</h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">Desktop software runs locally. Full data sovereignty and privacy. Optional sleep mode ensures safety.</p>
+                    {/* These two cards were added primarily to achieve a balanced 3x2 grid layout. Remove or replace later if needed. */}
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Volume2 className="text-brand-teal w-7 h-7" />
                       </div>
+                      <h4 className="font-bold text-xl text-white mb-2">Voice Summaries</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Wake up to a morning AI briefing. A generated voice note or text digest summarizing all customer interactions overnight.</p>
                     </div>
-                    <div className="flex items-start gap-4 bg-surface-elevated p-5 rounded-xl border border-surface-border hover:border-brand-teal transition-colors">
-                      <MessageCircle className="text-brand-teal w-6 h-6 shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-bold text-base text-white mb-1.5">Zero API Fees</h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">Uses your personal number via multi-device protocol. Avoid costly Meta API fees and rigid template approvals.</p>
+                    <div className="flex flex-col items-center text-center p-8 bg-surface-elevated rounded-3xl border border-surface-border hover:border-brand-teal transition-all w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[360px] group">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-teal/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <LayoutDashboard className="text-brand-teal w-7 h-7" />
                       </div>
-                    </div>
-                    <div className="flex items-start gap-4 bg-surface-elevated p-5 rounded-xl border border-surface-border hover:border-brand-teal transition-colors">
-                      <Server className="text-brand-teal w-6 h-6 shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-bold text-base text-white mb-1.5">Local LLM + RAG</h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">Powered by local models (Llama-3.2-3B/Phi-3). Responds purely based on your synced PDFs, Sheets, and catalogs.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4 bg-surface-elevated p-5 rounded-xl border border-surface-border hover:border-brand-teal transition-colors">
-                      <FileText className="text-brand-teal w-6 h-6 shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-bold text-base text-white mb-1.5">Vertical Ready</h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">Specialized knowledge packs included for Clinics, Salons, and local service businesses. Frustration handoff built-in.</p>
-                      </div>
+                      <h4 className="font-bold text-xl text-white mb-2">Local Intelligence</h4>
+                      <p className="text-sm text-gray-400 leading-relaxed">Track lead conversion and sentiment trends in a private local dashboard. No data ever touches external tracking servers.</p>
                     </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-4">
-                    <button
-                      className="bg-surface-elevated text-gray-400 border border-surface-border px-8 py-4 rounded-xl font-bold text-sm focus:outline-none cursor-default"
-                      aria-label="Target Release March 2026 for WA Co-Pilot"
+
+                  <div className="flex flex-wrap items-center justify-center gap-4">
+                    <div
+                      className="bg-surface-elevated text-gray-400 border border-surface-border px-8 py-4 rounded-xl font-bold text-sm"
                     >
                       Target Release: March 2026
-                    </button>
+                    </div>
                     <motion.a
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

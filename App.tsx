@@ -88,7 +88,7 @@ const App: React.FC = () => {
                     v1.2: Local Tool Automation
                   </motion.div>
       
-                  <motion.h1 id="hero-heading" variants={itemVariants} className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+                  <motion.h1 id="hero-heading" variants={itemVariants} className="text-[clamp(2.5rem,5vw+1rem,4.5rem)] font-extrabold tracking-tight mb-6 leading-[1.1]">
                     Automate your <br />
                     <span className="gradient-text">General Workflows.</span>
                   </motion.h1>
@@ -158,10 +158,12 @@ const App: React.FC = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                  className="flex flex-wrap justify-center gap-8"
                 >
                   {/* Card 1 */}
                   <FeatureCard
+                    centered
+                    className="w-full sm:w-[360px]"
                     title="Connect Your Tools"
                     description="Your calendar, project manager, or company database. Connect instantly to the apps you already use to automate complex operations."
                     icon={<Network size={32} />}
@@ -175,6 +177,8 @@ const App: React.FC = () => {
       
                   {/* Card 2 */}
                   <FeatureCard
+                    centered
+                    className="w-full sm:w-[360px]"
                     title="Private & Secure"
                     description="Your work stays on your machine. The agent runs locally so your files, emails, and documents are never sent to a third-party server."
                     icon={<Lock size={32} />}
@@ -187,6 +191,8 @@ const App: React.FC = () => {
       
                   {/* Card 3 */}
                   <FeatureCard
+                    centered
+                    className="w-full sm:w-[360px]"
                     title="Smart Reliability"
                     description="Our agent handles temporary errors and website changes automatically, ensuring your tasks get done without needing constant supervision."
                     icon={<Shield size={32} />}
