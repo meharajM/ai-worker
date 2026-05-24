@@ -1,29 +1,53 @@
 # AI-Worker
 
-> AI-Worker is a privacy-first desktop AI agent and product company building local, self-hosted automation tools for individuals and small businesses.
-> All products run 100% on the user's machine — no cloud required, no data ever leaves the device.
+> AI-Worker is a free MIT open-source desktop AI workspace for chat, files, browser automation, MCP tools, and provider-agnostic LLM workflows.
+> It is designed for individuals, non-developer users, teams, and enterprises that want an inspectable local automation hub.
 
-## Products
-
-### 1. AI-Worker (Available Now)
+## Product
 
 - **Name**: AI-Worker
-- **Version**: 1.2 (Beta)
-- **Category**: Productivity / Workflow Automation
-- **Price**: Free (Early Access)
+- **Version**: 0.1.2
+- **Category**: Open-source desktop AI workspace / Productivity / Workflow Automation
+- **Price**: Free
+- **License**: MIT
 - **Platforms**: macOS 12+, Windows 10/11, Linux
-- **Page**: https://ai-worker.tech/
+- **Website**: https://ai-worker.tech/
 - **Download**: https://ai-worker.tech/download
+- **Guide**: https://ai-worker.tech/guide
+- **GitHub**: https://github.com/meharajM/ai-worker.app
+- **Open-source readiness PR**: https://github.com/meharajM/ai-worker.app/pull/143
 
-**Key Capabilities**:
-- Automate repetitive tasks without writing code
-- Operate real desktop and web applications (click, type, read data)
-- Connect tools via MCP: Google Drive, Slack, Calendar, databases, and more
-- Private & local — all processing happens on your machine
-- Self-healing automation engine — handles temporary errors automatically
-- Supports autonomous multi-step agent execution
+## Core Capabilities
 
-**Installation**:
+- Chat workspace with text input, file drag-and-drop, and workflow starter tiles
+- MCP connections for memory, filesystem access, MarkItDown document conversion, browser automation, and custom servers
+- Provider choices for Ollama, OpenAI-compatible APIs, Gemini, OpenRouter, auto mode, and on-device paths where available
+- Playwright-backed browser automation for navigation, extraction, forms, and screenshots
+- Electron desktop packaging for macOS, Linux, and Windows
+
+## Non-Developer Usage
+
+- Install from the download page using the OS-specific one-line installer
+- Open Hub Settings to configure a local or hosted model provider
+- Open MCP Connections to confirm built-in tools or connect custom servers
+- Start in Hub Chat with a simple prompt, file task, or workflow starter tile
+
+## Setup Guide
+
+- **Guide URL**: https://ai-worker.tech/guide
+- **Purpose**: Step-by-step AI-Worker setup guide for non-developers, teams, and enterprise evaluators
+- **Covers**: download, install, provider configuration, MCP tools, first workflow, and enterprise setup contact
+- **SEO topics**: how to install AI-Worker, AI-Worker setup guide, configure Ollama in AI-Worker, enable MCP tools, desktop AI workspace for non-developers
+
+## Guide FAQ
+
+- **How do I install AI-Worker?** Open the download page or use the direct macOS, Windows, or Linux installer links in the guide.
+- **Can non-developers use AI-Worker?** Yes. Non-developers can install the desktop app, choose a model provider, enable built-in MCP tools, and run workflows from chat.
+- **Which AI providers work with AI-Worker?** AI-Worker can use local providers such as Ollama and supported hosted or OpenAI-compatible providers.
+- **What are MCP tools in AI-Worker?** MCP tools connect AI-Worker to memory, filesystem access, document conversion, browser automation, and custom internal tools.
+- **Can enterprises set up AI-Worker for internal systems?** Yes. Enterprises can contact contact@ai-worker.tech for provider, MCP, workflow, and rollout setup support.
+
+## Installation
 
 macOS / Linux (Terminal):
 curl -fsSL https://downloads.ai-worker.tech/install-mac.sh | bash
@@ -31,50 +55,22 @@ curl -fsSL https://downloads.ai-worker.tech/install-mac.sh | bash
 Windows (PowerShell):
 irm https://downloads.ai-worker.tech/install-windows.ps1 | iex
 
----
-
-### 2. WA Co-Pilot Self-Hosted (Coming Soon — Target: March 2026)
-
-- **Name**: WA Co-Pilot Self-Hosted
-- **Category**: WhatsApp AI Customer Support / Business Automation
-- **Price**: One-time license ₹4,999 (Pro) — no recurring fees
-- **Status**: Upcoming — demo requests open
-- **Page**: https://ai-worker.tech/products
-- **Request Demo**: https://forms.gle/viNJoRzTbiwVBtTS6
-
-**One-Sentence Summary**:
-A single executable that transforms any personal WhatsApp number into a 24×7 AI customer support agent with a local dashboard and daily voice summaries — 100% self-hosted, zero cloud, zero Meta API fees.
-
-**Key Features**:
-- Uses personal WhatsApp number via Baileys multi-device protocol (no Meta API)
-- Local LLM (Llama-3.2-3B / Phi-3 via Ollama) — 8GB RAM minimum
-- RAG engine: answers from synced PDF, Excel, Google Sheets knowledge base
-- Anti-ban engine: Gaussian reply delays, typing simulation, volume throttling
-- Vertical knowledge packs: HVAC, Clinics, Salons, Generic
-- Warm handoff + frustration detection
-- Daily voice note summary + local browser dashboard (localhost:3000)
-- One-time installer: Windows .exe, macOS .dmg, Linux AppImage
-
-**Target Audience**:
-Indian local service businesses (plumbers, salons, clinics) using personal WhatsApp who cannot afford Meta Business API.
-
-**Tech Stack**:
-Electron 32 + Baileys + Ollama + ChromaDB + SQLite + Vite React dashboard
-
----
-
 ## Company
 
 - **Website**: https://ai-worker.tech/
-- **Products Page**: https://ai-worker.tech/products
-- **Download Page**: https://ai-worker.tech/download
-- **Waitlist (AI-Worker)**: https://forms.gle/jiR16e2m4od5E2po7
-- **Demo Request (WA Co-Pilot)**: https://forms.gle/viNJoRzTbiwVBtTS6
+- **Download**: https://ai-worker.tech/download
+- **Guide**: https://ai-worker.tech/guide
+- **GitHub Repository**: https://github.com/meharajM/ai-worker.app
+- **Enterprise Contact**: contact@ai-worker.tech
 
 ## Use Cases
 
-- Automate calendar scheduling, email management, and document tasks (AI-Worker)
-- 24×7 WhatsApp customer support for small businesses without IT staff (WA Co-Pilot)
-- Summarise and organise Google Drive documents
-- Real-time appointment booking via WhatsApp with no human intervention
-- Cross-application data entry and synchronisation
+- Summarize files, research notes, and document folders
+- Extract data from documents and convert files through MarkItDown
+- Navigate websites, fill forms, compare pages, and capture screenshots through browser automation
+- Configure local Ollama or approved hosted providers for desktop AI workflows
+- Build repeatable internal workflows with MCP-connected tools
+
+## Enterprise Setup
+
+Enterprises can contact contact@ai-worker.tech for help mapping AI-Worker into their ecosystem, including provider policy choices, private local-first deployment patterns, MCP connections for internal systems, and workflow rollout planning.
