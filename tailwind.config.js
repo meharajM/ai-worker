@@ -29,10 +29,10 @@ export default {
           950: 'oklch(15% 0.01 250)'
         },
         brand: {
-          dark: 'oklch(15% 0.01 250)',
-          primary: 'oklch(60% 0.15 250)',
-          teal: 'oklch(60% 0.12 170)',
-          tealHover: 'oklch(55% 0.12 170)',
+          dark: 'oklch(14% 0.01 250)',
+          primary: 'oklch(44% 0.04 245)',
+          teal: 'oklch(58% 0.07 168)',
+          tealHover: 'oklch(52% 0.07 168)',
         },
         mac: {
           red: 'oklch(60% 0.15 20)',

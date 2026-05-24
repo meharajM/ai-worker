@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Monitor, Apple, Terminal, ChevronLeft, Cpu, Check, Copy } from 'lucide-react';
+import { Monitor, Apple, Terminal, ChevronLeft, Cpu, Check, Copy, Github, Settings, Network, Mail, FileText } from 'lucide-react';
 import { trackDownload } from '../utils/analytics';
 
 interface DownloadOption {
@@ -58,6 +58,9 @@ const SHELL_LABELS: Record<string, string> = {
   bash: 'Terminal',
   powershell: 'PowerShell',
 };
+
+const GITHUB_REPO_URL = 'https://github.com/meharajM/ai-worker.app';
+const CONTACT_EMAIL = 'contact@ai-worker.tech';
 
 interface DownloadPageProps {
   onBack: () => void;
@@ -140,7 +143,7 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
             </div>
             <span className="font-bold text-lg">AI-Worker</span>
             <span className="text-xs px-2 py-0.5 rounded-full bg-brand-teal/20 text-brand-teal font-medium border border-brand-teal/30">
-              Beta
+              MIT
             </span>
           </div>
         </div>
@@ -156,14 +159,14 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-elevated border border-surface-border text-brand-teal text-sm font-medium mb-6">
             <span className="flex h-2 w-2 rounded-full bg-brand-teal animate-pulse" />
-            Free Early Access — No Account Required
+            Free MIT Open Source — No Account Required
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
             Download{' '}
             <span className="gradient-text">AI-Worker</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-xl mx-auto">
-            Select your platform, then paste the one-liner into your terminal. Done in seconds.
+            Select your platform, paste the one-liner into your terminal, then configure providers and tools from the desktop UI.
           </p>
         </motion.div>
 
@@ -267,6 +270,73 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
                 <p className="text-gray-400 text-sm leading-relaxed">{text}</p>
               </div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Configuration Guide */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-6 rounded-2xl border border-surface-border bg-surface-card p-6"
+        >
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">After install</p>
+          <div className="space-y-5">
+            {[
+              {
+                icon: <Settings size={18} />,
+                title: 'Configure a model provider',
+                text: 'Open Hub Settings and choose Ollama for local models, or connect an OpenAI-compatible, Gemini, OpenRouter, or other supported provider.',
+              },
+              {
+                icon: <Network size={18} />,
+                title: 'Enable useful tools',
+                text: 'Open MCP Connections to inspect memory, filesystem, MarkItDown document conversion, Playwright browser automation, or add a custom MCP server.',
+              },
+              {
+                icon: <FileText size={18} />,
+                title: 'Run a small first workflow',
+                text: 'Start in Hub Chat with a simple request such as summarizing a file, extracting document data, or comparing information across websites.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center flex-shrink-0">
+                  {item.icon}
+                </div>
+                <div>
+                  <h2 className="text-white font-bold mb-1">{item.title}</h2>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-surface-border text-white font-bold text-sm transition-colors"
+            >
+              <Github size={16} />
+              GitHub Repository
+            </a>
+            <a
+              href={`${GITHUB_REPO_URL}/blob/main/docs/usage.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-surface-border text-white font-bold text-sm transition-colors"
+            >
+              <FileText size={16} />
+              Usage Guide
+            </a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Enterprise%20AI-Worker%20setup`}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-gray-100 text-brand-dark font-bold text-sm transition-colors"
+            >
+              <Mail size={16} />
+              Enterprise Setup
+            </a>
           </div>
         </motion.div>
       </div>

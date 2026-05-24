@@ -15,10 +15,7 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(to right, theme('colors.brand.teal'), theme('colors.brand.primary'));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: theme('colors.brand.teal');
   }
 
   .mesh-bg {
