@@ -589,6 +589,7 @@ const App: React.FC = () => {
                     type="button"
                     onClick={() => navigate('download')}
                     className="hover:text-white transition-colors">Download</button>
+                  <a href="/thought-notes" className="hover:text-white transition-colors">Thought Notes</a>
                   <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
                 </nav>
       
