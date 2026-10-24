@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Thought Notes is a local-first notes app. Capture typed thoughts, keep the original in Inbox, and optionally organize notes into topics with on-device AI." />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="theme-color" content="#101916" />
+    <link rel="canonical" href="https://ai-worker.tech/thought-notes" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AI-Worker" />
+    <meta property="og:url" content="https://ai-worker.tech/thought-notes" />
+    <meta property="og:title" content="Thought Notes — Local Notes with On-Device AI" />
+    <meta property="og:description" content="Capture typed thoughts, keep the original in Inbox, and optionally organize notes into topics with on-device AI." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Thought Notes — Local Notes with On-Device AI" />
+    <meta name="twitter:description" content="Capture typed thoughts, keep the original in Inbox, and optionally organize notes into topics with on-device AI." />
+    <title>Thought Notes — Local Notes with On-Device AI | AI-Worker</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Thought Notes",
+        "url": "https://ai-worker.tech/thought-notes",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Android, iOS",
+        "description": "A local-first notes app for capturing typed thoughts and pasted text, keeping originals in Inbox, and optionally organizing notes into topics with on-device AI. Android also supports user-started voice capture with on-device transcription; iOS is text-only.",
+        "featureList": [
+          "Typed notes and pasted-text capture",
+          "Original notes saved to Inbox before optional processing",
+          "Optional on-device AI topic organization",
+          "Android-only user-started voice capture and local transcription"
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "UMCreations",
+          "url": "https://ai-worker.tech/"
+        }
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #101916;
+        color: #f2f3ec;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        --muted: #aab4ad;
+        --line: #34413b;
+        --accent: #86d5b5;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-width: 320px; background: #101916; }
+      a { color: inherit; }
+      a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+      .site-header, main, footer { width: min(100% - 40px, 1080px); margin-inline: auto; }
+      .site-header { min-height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+      .brand { display: inline-flex; gap: 10px; align-items: center; text-decoration: none; font-weight: 650; letter-spacing: -.02em; }
+      .brand-mark { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+      .brand span:last-child { color: var(--muted); font-weight: 450; }
+      .site-nav { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+      .site-nav a { text-decoration: none; }
+      .site-nav a:hover, footer a:hover { color: var(--accent); }
+      .hero { padding: clamp(64px, 10vw, 118px) 0 88px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: clamp(36px, 8vw, 100px); align-items: center; }
+      .eyebrow { margin: 0 0 20px; color: var(--accent); font-size: 12px; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { max-width: 620px; margin: 0; font-size: clamp(44px, 7vw, 76px); line-height: .99; letter-spacing: -.065em; font-weight: 620; }
+      .hero-copy { max-width: 560px; margin: 25px 0 0; color: #c4ccc5; font-size: clamp(18px, 2vw, 21px); line-height: 1.6; }
+      .hero-promise { margin-top: 17px; color: var(--muted); font-size: 14px; }
+      .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 32px; }
+      .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; border-radius: 6px; padding: 0 17px; background: var(--accent); color: #102019; font-size: 14px; font-weight: 680; text-decoration: none; }
+      .text-link { color: #d4ddd6; font-size: 14px; text-underline-offset: 4px; }
+      .availability { margin: 21px 0 0; color: var(--muted); font-size: 13px; }
+      .note-preview { background: #e8e8dc; color: #202b25; padding: 25px 25px 28px; box-shadow: 14px 14px 0 #26332d; transform: rotate(1deg); }
+      .note-meta { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #c5c9bb; color: #66736a; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+      .note-preview h2 { margin: 20px 0 16px; font-size: 24px; letter-spacing: -.04em; }
+      .note-preview p { margin: 0; color: #3d4a41; font-size: 15px; line-height: 1.65; }
+      .note-rule { height: 1px; margin: 19px 0; background: #c5c9bb; }
+      .note-label { color: #758078; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+      section.content { padding: 64px 0; border-top: 1px solid var(--line); }
+      .section-intro { max-width: 650px; margin-bottom: 38px; }
+      h2 { margin: 0; font-size: clamp(28px, 4vw, 38px); letter-spacing: -.045em; font-weight: 570; }
+      .section-intro p, .body-copy { color: #bbc5bd; font-size: 16px; line-height: 1.75; }
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .step { padding: 20px 28px 10px 0; }
+      .step + .step { padding-left: 28px; border-left: 1px solid var(--line); }
+      .step-number { color: var(--accent); font-size: 12px; letter-spacing: .12em; }
+      .step h3 { margin: 15px 0 8px; font-size: 18px; font-weight: 600; }
+      .step p { max-width: 300px; margin: 0; color: var(--muted); line-height: 1.7; font-size: 15px; }
+      .platforms { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 7vw, 90px); }
+      .platform h3 { margin: 18px 0 8px; font-size: 20px; font-weight: 590; }
+      .platform p { max-width: 480px; margin: 0; color: #bbc5bd; line-height: 1.75; }
+      .platform-label { color: var(--accent); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+      .privacy-copy { max-width: 740px; }
+      .privacy-copy p { color: #bbc5bd; line-height: 1.8; }
+      .facts { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .fact { padding-top: 14px; border-top: 1px solid var(--line); }
+      .fact strong { display: block; margin-bottom: 7px; font-size: 14px; }
+      .fact span { color: var(--muted); font-size: 13px; line-height: 1.65; }
+      .faq { max-width: 760px; }
+      details { border-top: 1px solid var(--line); padding: 19px 0; }
+      details:last-child { border-bottom: 1px solid var(--line); }
+      summary { cursor: pointer; font-size: 16px; font-weight: 560; }
+      details p { max-width: 680px; margin: 13px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+      footer { display: flex; justify-content: space-between; gap: 18px; padding: 28px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+      footer nav { display: flex; gap: 20px; }
+      footer a { text-underline-offset: 3px; }
+      @media (max-width: 700px) {
+        .site-header, main, footer { width: min(100% - 32px, 1080px); }
+        .site-header { min-height: 68px; }
+        .site-nav { gap: 15px; font-size: 13px; }
+        .site-nav a:first-child { display: none; }
+        .hero { grid-template-columns: 1fr; padding: 68px 0 64px; gap: 43px; }
+        .note-preview { max-width: 420px; margin-left: 5px; }
+        section.content { padding: 50px 0; }
+        .steps { grid-template-columns: 1fr; }
+        .step, .step + .step { padding: 18px 0; border-left: 0; border-top: 1px solid var(--line); }
+        .step p { max-width: none; }
+        .platforms { grid-template-columns: 1fr; gap: 34px; }
+        .facts { grid-template-columns: 1fr; gap: 18px; }
+        footer { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="AI-Worker home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>AI-Worker</span>
+        <span>/ Thought Notes</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">AI-Worker home</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A local-first notes app</p>
+          <h1 id="page-title">Thought Notes</h1>
+          <p class="hero-copy">Capture a thought. Keep the original. Let on-device AI help file it under a useful topic.</p>
+          <p class="hero-promise">Typed notes and pasted text on iOS and Android. Voice capture on Android.</p>
+          <div class="actions">
+            <a class="button" href="https://github.com/meharajM/context.md">View the app source</a>
+            <a class="text-link" href="https://gist.github.com/meharajM/95c21961e6af613c8a076867c3870381">Read the privacy policy</a>
+          </div>
+          <p class="availability">App Store and Google Play listings are not live yet. Source and setup notes are available on GitHub.</p>
+        </div>
+        <aside class="note-preview" aria-label="Example of a topic note">
+          <div class="note-meta"><span>Example topic file</span><span>Saved locally</span></div>
+          <h2>Work</h2>
+          <p>Ask Priya for the updated research notes before Thursday’s review.</p>
+          <div class="note-rule"></div>
+          <p class="note-label">Inbox keeps original capture</p>
+          <p style="margin-top: 8px">The note stays available if organization is waiting or unavailable.</p>
+        </aside>
+      </section>
+
+      <section class="content" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-intro">
+          <p class="eyebrow">A simple workflow</p>
+          <h2 id="how-title">Capture first. Sort when ready.</h2>
+          <p>Thought Notes keeps note capture straightforward and makes AI organization optional.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <h3>Write or paste</h3>
+            <p>Save a typed thought or bring in text. Every capture is stored in Inbox before model processing begins.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">02</span>
+            <h3>Organize on device</h3>
+            <p>An optional local model can refine a note and file it into a relevant topic using existing context.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">03</span>
+            <h3>Review and decide</h3>
+            <p>Browse or edit topic notes. If a destination is unclear, choose one; if AI is unavailable, the original stays in Inbox.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content" aria-labelledby="platform-title">
+        <div class="section-intro">
+          <p class="eyebrow">Platform support</p>
+          <h2 id="platform-title">Same local notes. Different capture options.</h2>
+        </div>
+        <div class="platforms">
+          <article class="platform">
+            <span class="platform-label">iOS</span>
+            <h3>Text and pasted notes</h3>
+            <p>Capture typed thoughts or paste text, then organize notes with an optional on-device model. Voice capture is not included in the iOS v1 release.</p>
+          </article>
+          <article class="platform">
+            <span class="platform-label">Android</span>
+            <h3>Text, paste, and user-started voice</h3>
+            <p>Record from the app or home-screen widget when you choose. Whisper transcribes speech on device. Recording does not run in the background.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content" aria-labelledby="privacy-title">
+        <div class="privacy-copy">
+          <p class="eyebrow">Data handling</p>
+          <h2 id="privacy-title">Your notes stay in local app storage.</h2>
+          <p>Thought Notes has no publisher account, ads, analytics, cloud AI backend, or sync service. Note organization and Android speech transcription run on device. An internet connection is used to download the optional AI model. The app does not intentionally include note text or topic files in model-download requests; hosts still receive ordinary connection details such as your IP address and the requested model URL. Sharing happens only when you choose an app in the system share sheet.</p>
+          <div class="facts">
+            <div class="fact"><strong>No account</strong><span>Start without creating a login or profile.</span></div>
+            <div class="fact"><strong>Optional model</strong><span>Gemma 3 1B is about 585 MB. Notes remain capturable if the model is unavailable.</span></div>
+            <div class="fact"><strong>No sync service</strong><span>Notes stay on the device. Operating-system backup settings may apply.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content faq" aria-labelledby="faq-title">
+        <div class="section-intro">
+          <p class="eyebrow">Good to know</p>
+          <h2 id="faq-title">Before you start</h2>
+        </div>
+        <details>
+          <summary>Does Thought Notes send notes to a cloud AI service?</summary>
+          <p>No. Note synthesis runs on device. The app does use the network to download the optional model, and the model host receives normal request metadata.</p>
+        </details>
+        <details>
+          <summary>Can I capture notes without the AI model?</summary>
+          <p>Yes. Typed notes and pasted text are saved to Inbox first. If the model is missing, the device is under resource pressure, or processing fails, the original remains available there.</p>
+        </details>
+        <details>
+          <summary>How do I enable on-device topic organization?</summary>
+          <p>Install or manage the recommended model in Settings. It is about 585 MB and targets devices with at least 4 GB of RAM. Eligible devices may start downloading it automatically; note capture still works while it is unavailable.</p>
+        </details>
+        <details>
+          <summary>Can I record voice notes on iPhone?</summary>
+          <p>No. The current iOS release supports typed notes and pasted text. User-started voice capture with local transcription is available on Android.</p>
+        </details>
+        <details>
+          <summary>Is Thought Notes available in the app stores?</summary>
+          <p>Not yet. Public App Store and Google Play listings are not live. Check the <a href="https://github.com/meharajM/context.md">project repository</a> for source and setup information.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <span>Thought Notes · An AI-Worker product by UMCreations</span>
+      <nav aria-label="Footer navigation">
+        <a href="/">AI-Worker home</a>
+        <a href="https://github.com/meharajM/context.md">Source</a>
+        <a href="https://gist.github.com/meharajM/95c21961e6af613c8a076867c3870381">Privacy</a>
+      </nav>
+    </footer>
+  </body>
+</html>

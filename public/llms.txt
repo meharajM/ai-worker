@@ -63,6 +63,13 @@ irm https://downloads.ai-worker.tech/install-windows.ps1 | iex
 - **GitHub Repository**: https://github.com/meharajM/ai-worker.app
 - **Enterprise Contact**: contact@ai-worker.tech
 
+## Other product
+
+- **Thought Notes**: https://ai-worker.tech/thought-notes
+- A local-first notes app for typed thoughts and pasted text, with optional on-device AI topic filing.
+- Android also supports user-started voice capture and on-device transcription; iOS is text-only.
+- App Store and Google Play listings are not live yet. Source and setup details: https://github.com/meharajM/context.md
+
 ## Use Cases
 
 - Summarize files, research notes, and document folders
