@@ -126,6 +126,18 @@ const DownloadPage: React.FC<DownloadPageProps> = ({ onBack }) => {
 
   return (
     <div className="min-h-screen font-sans text-white bg-brand-dark overflow-x-hidden">
+      {/* React 19 Native Metadata Hoisting */}
+      <title>Download AI-Worker | Desktop AI Client for Mac, Windows & Linux</title>
+      <meta name="description" content="Download the free MIT open-source AI-Worker desktop application. Simple one-step installation commands for macOS Terminal, Windows PowerShell, and Linux." />
+      <meta name="keywords" content="download ai-worker, install ai desktop client, free local LLM UI, desktop AI terminal script" />
+      <meta property="og:title" content="Download AI-Worker | Free Desktop AI Workspace" />
+      <meta property="og:description" content="Get started with AI-Worker in seconds. Direct command-line installer scripts for all major operating systems." />
+      <meta property="og:url" content="https://ai-worker.tech/download/" />
+      <meta name="twitter:title" content="Download AI-Worker | Free Desktop AI Workspace" />
+      <meta name="twitter:description" content="Get started with AI-Worker in seconds. Direct command-line installer scripts for all major operating systems." />
+      <meta name="twitter:url" content="https://ai-worker.tech/download/" />
+      <link rel="canonical" href="https://ai-worker.tech/download/" />
+
       {/* Header */}
       <div className="fixed top-0 left-0 w-full z-50 bg-brand-dark border-b border-surface-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-20 gap-4">

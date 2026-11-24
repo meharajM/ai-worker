@@ -9,7 +9,7 @@ interface GuidePageProps {
 }
 
 const GITHUB_REPO_URL = 'https://github.com/meharajM/ai-worker.app';
-const DOWNLOAD_PAGE_URL = 'https://ai-worker.tech/download';
+const DOWNLOAD_PAGE_URL = 'https://ai-worker.tech/download/';
 const MAC_INSTALL_URL = 'https://downloads.ai-worker.tech/install-mac.sh';
 const WINDOWS_INSTALL_URL = 'https://downloads.ai-worker.tech/install-windows.ps1';
 const LINUX_INSTALL_URL = 'https://downloads.ai-worker.tech/install-linux.sh';
@@ -61,104 +61,77 @@ const SCREENSHOTS = [
 ];
 
 const GuidePage: React.FC<GuidePageProps> = ({ onBack, onDownload }) => {
-  useEffect(() => {
-    const originalTitle = document.title;
-    const guideTitle = 'AI-Worker Setup Guide | Install, Configure Providers, and Use MCP Tools';
-    const guideDescription = 'Step-by-step AI-Worker setup guide for macOS, Windows, and Linux. Learn how to install the free MIT open-source app, configure LLM providers, enable MCP tools, and run your first workflow.';
-    document.title = guideTitle;
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const originalContent = metaDescription?.getAttribute('content') || '';
-    if (metaDescription) {
-      metaDescription.setAttribute('content', guideDescription);
-    }
-
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    const originalCanonical = canonical?.getAttribute('href') || '';
-    if (canonical) canonical.setAttribute('href', 'https://ai-worker.tech/guide');
-
-    const routeMeta = [
-      { selector: 'meta[property="og:title"]', value: guideTitle },
-      { selector: 'meta[property="og:description"]', value: guideDescription },
-      { selector: 'meta[property="og:url"]', value: 'https://ai-worker.tech/guide' },
-      { selector: 'meta[name="twitter:title"]', value: guideTitle },
-      { selector: 'meta[name="twitter:description"]', value: guideDescription },
-      { selector: 'meta[name="twitter:url"]', value: 'https://ai-worker.tech/guide' },
-    ].map(({ selector, value }) => {
-      const element = document.querySelector<HTMLMetaElement>(selector);
-      const previous = element?.getAttribute('content') || '';
-      if (element) element.setAttribute('content', value);
-      return { element, previous };
-    });
-
-    const structuredData = document.createElement('script');
-    structuredData.type = 'application/ld+json';
-    structuredData.id = 'guide-structured-data';
-    structuredData.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'HowTo',
-          name: 'How to install and set up AI-Worker',
-          description: 'Install AI-Worker, configure an LLM provider, enable MCP tools, and run a first desktop AI workflow.',
-          url: 'https://ai-worker.tech/guide',
-          totalTime: 'PT10M',
-          tool: [
-            { '@type': 'HowToTool', name: 'AI-Worker desktop app' },
-            { '@type': 'HowToTool', name: 'Model provider such as Ollama or an OpenAI-compatible API' },
-          ],
-          step: [
-            {
-              '@type': 'HowToStep',
-              name: 'Download AI-Worker',
-              text: 'Open the download page and choose the macOS, Windows, or Linux installer.',
-              url: 'https://ai-worker.tech/download',
-            },
-            {
-              '@type': 'HowToStep',
-              name: 'Choose a model provider',
-              text: 'Open Hub Settings and configure a local provider such as Ollama or a supported hosted provider.',
-            },
-            {
-              '@type': 'HowToStep',
-              name: 'Enable MCP tools',
-              text: 'Open MCP Connections and enable memory, filesystem, document conversion, browser automation, or custom MCP servers.',
-            },
-            {
-              '@type': 'HowToStep',
-              name: 'Run a first workflow',
-              text: 'Start from Hub Chat with a simple file, browser, or research task.',
-            },
-          ],
-        },
-        {
-          '@type': 'FAQPage',
-          mainEntity: GUIDE_FAQ_ITEMS.map((item) => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer,
-            },
-          })),
-        },
-      ],
-    });
-    document.head.appendChild(structuredData);
-
-    return () => {
-      document.title = originalTitle;
-      if (metaDescription) metaDescription.setAttribute('content', originalContent);
-      if (canonical) canonical.setAttribute('href', originalCanonical);
-      routeMeta.forEach(({ element, previous }) => {
-        if (element) element.setAttribute('content', previous);
-      });
-      structuredData.remove();
-    };
-  }, []);
-
   return (
     <main className="min-h-screen font-sans text-white bg-brand-dark overflow-x-hidden">
+      {/* React 19 Native Metadata Hoisting */}
+      <title>AI-Worker Setup Guide | Install, Configure Providers, and Use MCP Tools</title>
+      <meta name="description" content="Step-by-step AI-Worker setup guide for macOS, Windows, and Linux. Learn how to install the free MIT open-source app, configure LLM providers, enable MCP tools, and run your first workflow." />
+      <meta name="keywords" content="install ai-worker, configure ollama, connect custom mcp server, desktop ai agent setup" />
+
+      <meta property="og:title" content="AI-Worker Setup Guide | Install, Configure Providers, and Use MCP Tools" />
+      <meta property="og:description" content="Step-by-step AI-Worker setup guide for macOS, Windows, and Linux. Learn how to install the free MIT open-source app, configure LLM providers, enable MCP tools, and run your first workflow." />
+      <meta property="og:url" content="https://ai-worker.tech/guide/" />
+
+      <meta name="twitter:title" content="AI-Worker Setup Guide | Install, Configure Providers, and Use MCP Tools" />
+      <meta name="twitter:description" content="Step-by-step AI-Worker setup guide for macOS, Windows, and Linux. Learn how to install the free MIT open-source app, configure LLM providers, enable MCP tools, and run your first workflow." />
+      <meta name="twitter:url" content="https://ai-worker.tech/guide/" />
+
+      <link rel="canonical" href="https://ai-worker.tech/guide/" />
+
+      {/* Structured Data: HowTo and FAQ Page */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'HowTo',
+              name: 'How to install and set up AI-Worker',
+              description: 'Install AI-Worker, configure an LLM provider, enable MCP tools, and run a first desktop AI workflow.',
+              url: 'https://ai-worker.tech/guide/',
+              totalTime: 'PT10M',
+              tool: [
+                { '@type': 'HowToTool', name: 'AI-Worker desktop app' },
+                { '@type': 'HowToTool', name: 'Model provider such as Ollama or an OpenAI-compatible API' },
+              ],
+              step: [
+                {
+                  '@type': 'HowToStep',
+                  name: 'Download AI-Worker',
+                  text: 'Open the download page and choose the macOS, Windows, or Linux installer.',
+                  url: 'https://ai-worker.tech/download/',
+                },
+                {
+                  '@type': 'HowToStep',
+                  name: 'Choose a model provider',
+                  text: 'Open Hub Settings and configure a local provider such as Ollama or a supported hosted provider.',
+                },
+                {
+                  '@type': 'HowToStep',
+                  name: 'Enable MCP tools',
+                  text: 'Open MCP Connections and enable memory, filesystem, document conversion, browser automation, or custom MCP servers.',
+                },
+                {
+                  '@type': 'HowToStep',
+                  name: 'Run a first workflow',
+                  text: 'Start from Hub Chat with a simple file, browser, or research task.',
+                },
+              ],
+            },
+            {
+              '@type': 'FAQPage',
+              mainEntity: GUIDE_FAQ_ITEMS.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: item.answer,
+                },
+              })),
+            },
+          ],
+        })}
+      </script>
+
       <div className="fixed top-0 left-0 w-full z-50 bg-brand-dark border-b border-surface-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-20 gap-4">
           <motion.button

@@ -6,6 +6,7 @@ import AgentDemo from './components/AgentDemo';
 import GuidePage from './components/GuidePage';
 import DownloadPage from './components/DownloadPage';
 import ProductsPage from './components/ProductsPage';
+import ThoughtNotesPage from './components/ThoughtNotesPage';
 import { Network, Shield, Check, Lock, Github, Download, Settings, Users, Mail, FileText, Globe2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -53,11 +54,12 @@ const FAQ_ITEMS = [
 ];
 
 const App: React.FC = () => {
-  const [page, setPage] = React.useState<'home' | 'download' | 'capabilities' | 'guide'>(() => {
+  const [page, setPage] = React.useState<'home' | 'download' | 'capabilities' | 'guide' | 'thought-notes'>(() => {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     if (path === '/download') return 'download';
     if (path === '/products' || path === '/capabilities') return 'capabilities';
     if (path === '/guide') return 'guide';
+    if (path === '/thought-notes') return 'thought-notes';
     return 'home';
   });
 
@@ -67,17 +69,19 @@ const App: React.FC = () => {
       if (path === '/download') setPage('download');
       else if (path === '/products' || path === '/capabilities') setPage('capabilities');
       else if (path === '/guide') setPage('guide');
+      else if (path === '/thought-notes') setPage('thought-notes');
       else setPage('home');
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigate = (newPage: 'home' | 'download' | 'capabilities' | 'guide') => {
+  const navigate = (newPage: 'home' | 'download' | 'capabilities' | 'guide' | 'thought-notes') => {
     let path = '/';
     if (newPage === 'download') path = '/download';
     if (newPage === 'capabilities') path = '/capabilities';
     if (newPage === 'guide') path = '/guide';
+    if (newPage === 'thought-notes') path = '/thought-notes';
     window.history.pushState({}, '', path);
     setPage(newPage);
     window.scrollTo(0, 0);
@@ -98,7 +102,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen font-sans selection:bg-brand-teal selection:text-white bg-brand-dark overflow-x-hidden text-white">
-      <Navbar onDownloadClick={() => navigate('download')} onHomeClick={() => navigate('home')} onFeaturesClick={navigateToFeatures} onCapabilitiesClick={() => navigate('capabilities')} onGuideClick={() => navigate('guide')} />
+      <Navbar onDownloadClick={() => navigate('download')} onHomeClick={() => navigate('home')} onFeaturesClick={navigateToFeatures} onCapabilitiesClick={() => navigate('capabilities')} onGuideClick={() => navigate('guide')} onThoughtNotesClick={() => navigate('thought-notes')} isThoughtNotesPage={page === 'thought-notes'} />
       <AnimatePresence mode="wait">
         {page === 'home' && (
           <motion.main
@@ -639,6 +643,18 @@ const App: React.FC = () => {
             className="w-full"
           >
             <GuidePage onBack={() => navigate('home')} onDownload={() => navigate('download')} />
+          </motion.div>
+        )}
+        {page === 'thought-notes' && (
+          <motion.div
+            key="thought-notes"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-full"
+          >
+            <ThoughtNotesPage />
           </motion.div>
         )}
       </AnimatePresence>

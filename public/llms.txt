@@ -12,8 +12,8 @@
 - **License**: MIT
 - **Platforms**: macOS 12+, Windows 10/11, Linux
 - **Website**: https://ai-worker.tech/
-- **Download**: https://ai-worker.tech/download
-- **Guide**: https://ai-worker.tech/guide
+- **Download**: https://ai-worker.tech/download/
+- **Guide**: https://ai-worker.tech/guide/
 - **GitHub**: https://github.com/meharajM/ai-worker.app
 - **Open-source readiness PR**: https://github.com/meharajM/ai-worker.app/pull/143
 
@@ -34,7 +34,7 @@
 
 ## Setup Guide
 
-- **Guide URL**: https://ai-worker.tech/guide
+- **Guide URL**: https://ai-worker.tech/guide/
 - **Purpose**: Step-by-step AI-Worker setup guide for non-developers, teams, and enterprise evaluators
 - **Covers**: download, install, provider configuration, MCP tools, first workflow, and enterprise setup contact
 - **SEO topics**: how to install AI-Worker, AI-Worker setup guide, configure Ollama in AI-Worker, enable MCP tools, desktop AI workspace for non-developers
@@ -47,6 +47,28 @@
 - **What are MCP tools in AI-Worker?** MCP tools connect AI-Worker to memory, filesystem access, document conversion, browser automation, and custom internal tools.
 - **Can enterprises set up AI-Worker for internal systems?** Yes. Enterprises can contact contact@ai-worker.tech for provider, MCP, workflow, and rollout setup support.
 
+## Mobile App: Thought Notes
+
+- **Name**: Thought Notes
+- **Purpose**: Capture thoughts by voice or text, then find related notes grouped into searchable topics
+- **Platforms and status**: Available for Android on Google Play: https://play.google.com/store/apps/details?id=com.meharaj.contextengine. The iPhone app is coming soon; the features below describe the current Android release.
+- **Website and usage guide**: https://ai-worker.tech/thought-notes/
+- **Source**: https://github.com/meharajM/context.md
+- **Privacy policy**: https://gist.github.com/meharajM/95c21961e6af613c8a076867c3870381
+- **Capture**: Write, paste, or record a thought in English from the app or Android home-screen widget. Recording can continue while switching apps. Voice transcription runs on the phone after its model download and then works offline.
+- **On-device AI**: When the model is ready on a compatible phone, it groups related notes into topics and can add a short summary to an individual note. The full original stays available; uncertain notes remain in Inbox.
+- **Assistant handoff**: Share a topic with ChatGPT or another assistant, then share the response back. Thought Notes can file the reply with related notes when its model is ready.
+- **Reminders**: Optional and off until enabled in Settings. On-device AI may find a clear task in a new note and schedule a local notification; Android can delay notification delivery.
+- **Find and use**: Search saved notes and topics, edit notes, and share selected notes or topics through the Android share menu.
+- **Backup**: Export a JSON file containing notes and transcripts, not audio recordings.
+- **Data behavior**: Notes and transcripts stay on the device. There is no account, advertising, or publisher analytics. Internet is needed to download the voice and writing models; note content is sent to an AI assistant only when the user chooses to share it.
+
+### Thought Notes Quick Start
+
+1. Install Thought Notes from Google Play and write or record a thought.
+2. Once the on-device writing model is ready, it can group related notes, add a short summary, and file assistant responses. Uncertain notes stay in Inbox.
+3. Search, edit, or share notes. Enable reminders in Settings if you want local alerts for clear tasks in new notes. Export a JSON backup when you want a copy outside the app.
+
 ## Installation
 
 macOS / Linux (Terminal):
@@ -58,8 +80,8 @@ irm https://downloads.ai-worker.tech/install-windows.ps1 | iex
 ## Company
 
 - **Website**: https://ai-worker.tech/
-- **Download**: https://ai-worker.tech/download
-- **Guide**: https://ai-worker.tech/guide
+- **Download**: https://ai-worker.tech/download/
+- **Guide**: https://ai-worker.tech/guide/
 - **GitHub Repository**: https://github.com/meharajM/ai-worker.app
 - **Enterprise Contact**: contact@ai-worker.tech
 

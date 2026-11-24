@@ -36,27 +36,23 @@ const CAPABILITIES = [
 ];
 
 const ProductsPage: React.FC<ProductsPageProps> = ({ onBack, onDownload, onGuide }) => {
-  useEffect(() => {
-    const originalTitle = document.title;
-    document.title = 'Capabilities | AI-Worker';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const originalContent = metaDescription?.getAttribute('content') || '';
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Explore the core capabilities of AI-Worker, the free MIT open-source desktop AI workspace for chat, files, browser automation, MCP tools, and provider-agnostic workflows.'
-      );
-    }
-
-    return () => {
-      document.title = originalTitle;
-      if (metaDescription) metaDescription.setAttribute('content', originalContent);
-    };
-  }, []);
-
   return (
     <main className="min-h-screen font-sans text-white bg-brand-dark overflow-x-hidden">
+      {/* React 19 Native Metadata Hoisting */}
+      <title>AI-Worker Capabilities | Chat, Files & Browser Automation</title>
+      <meta name="description" content="Explore the core capabilities of AI-Worker, the free MIT open-source desktop AI workspace for chat, files, browser automation, MCP tools, and provider-agnostic workflows." />
+      <meta name="keywords" content="ai-worker capabilities, desktop ai agent browser automation, mcp connections, ollama desktop integration" />
+
+      <meta property="og:title" content="AI-Worker Capabilities & Integrations" />
+      <meta property="og:description" content="Explore the core capabilities of AI-Worker, the free MIT open-source desktop AI workspace for chat, files, browser automation, MCP tools, and provider-agnostic workflows." />
+      <meta property="og:url" content="https://ai-worker.tech/capabilities/" />
+
+      <meta name="twitter:title" content="AI-Worker Capabilities & Integrations" />
+      <meta name="twitter:description" content="Explore the core capabilities of AI-Worker, the free MIT open-source desktop AI workspace for chat, files, browser automation, MCP tools, and provider-agnostic workflows." />
+      <meta name="twitter:url" content="https://ai-worker.tech/capabilities/" />
+
+      <link rel="canonical" href="https://ai-worker.tech/capabilities/" />
+
       <div className="fixed top-0 left-0 w-full z-50 bg-brand-dark border-b border-surface-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-20 gap-4">
           <motion.button

@@ -3,29 +3,36 @@
   <!-- Home / Landing page -->
   <url>
     <loc>https://ai-worker.tech/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Capabilities page -->
   <url>
-    <loc>https://ai-worker.tech/capabilities</loc>
-    <lastmod>2026-05-24</lastmod>
+    <loc>https://ai-worker.tech/capabilities/</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Guide page -->
   <url>
-    <loc>https://ai-worker.tech/guide</loc>
-    <lastmod>2026-05-24</lastmod>
+    <loc>https://ai-worker.tech/guide/</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <!-- Download page -->
   <url>
-    <loc>https://ai-worker.tech/download</loc>
-    <lastmod>2026-05-24</lastmod>
+    <loc>https://ai-worker.tech/download/</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Thought Notes mobile app -->
+  <url>
+    <loc>https://ai-worker.tech/thought-notes/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>

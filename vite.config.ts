@@ -10,6 +10,8 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
     },
     plugins: [react()],
+    // Keep the bundle readable by the Chromium 78 used in the existing prerender script.
+    build: { target: 'chrome78' },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
